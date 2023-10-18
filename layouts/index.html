@@ -7,8 +7,8 @@
 	</div>
 
     <h1>{{ .Site.Title }}</h1>
-    {{ if isset .Site.Params "description" }}
-        <h3>{{ .Site.Params.Description }}</h3>
+    {{ if isset .Site.Params "descriptionmd" }}
+        <h3>{{ .Site.Params.Descriptionmd | markdownify }}</h3>
     {{ end }}
 
 </section>
