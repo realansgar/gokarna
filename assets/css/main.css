@@ -240,11 +240,12 @@ a:hover .feather-sun {
   bottom: 0;
   color: inherit;
   left: 0;
+  margin-left: 30%;
   overflow: hidden;
   padding: 40px 0;
   position: absolute;
   text-align: center;
-  width: 100%;
+  width: 40%;
 }
 
 .footer span {
@@ -594,6 +595,11 @@ table td {
   .list-posts .post-date {
     color: gray;
   }
+
+  .footer {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 820px) {
@@ -624,4 +630,36 @@ table td {
 
 .prev-post, .next-post {
   max-width: 33%;
+}
+
+/* back to top button  */
+.arrow-logo {
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: 20px;
+  cursor: pointer;
+  display: none;
+  font-size: 24px;
+  padding: 10px;
+  padding-right: 8px;
+  position: fixed;
+  right: 20px;
+  z-index: 5;
+  background-color: var(--light-tertiary-color);
+  width: 25px;
+  height: 25px;
+}
+
+.arrow-logo path{
+  fill: var(--light-secondary-color)
+}
+
+.arrow-logo:hover {
+  fill:  var(--accent-color); 
+}
+
+@media screen and (max-width: 600px) {
+  #btt-button {
+      visibility: hidden;
+  }
 }

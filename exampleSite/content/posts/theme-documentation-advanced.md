@@ -152,10 +152,39 @@ The same icon in this case could also be added without feather:
     pre = "<img class='svg-inject' src='/icons/github.svg' />"
 ```
 
+You can add `params` allowing menu link to open in a new tab, for example: 
+```toml
+[[menu.main]]
+  identifier = "github"
+  url = "https://github.com/zerodahero"
+  weight = 4
+  # We use feather-icons: https://feathericons.com/
+  pre = "<span data-feather='github'></span>"
+  [menu.main.params]
+    newPage = true
+```
 
 ## Custom Head and Footer HTML
 
 The goal of this feature is to give the user more control over the theme. It's functioning is very straightforward - "You can inject any HTML you want in the `<head>` tag" . This may seem simple at first, but it opens up a lot of possibilities.
+
+## Custom Comment HTML 
+
+Similar to custom head and footer HTML, you can add custom HTML for comments at the end of every post. Its in a `<div>` with the id `comments` which can be then customized with your external CSS.
+
+The purpose of this is to freely use any comments platform of your choosing
+
+### For example
+```toml 
+customCommentHTML = """
+<script src="https://utteranc.es/client.js"
+    repo="526avijitgupta/gokarna"
+    issue-term="title"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async></script>
+"""
+```
 
 ### Bring your own scripts
 

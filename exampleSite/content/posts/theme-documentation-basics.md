@@ -27,9 +27,7 @@ cd my_website
 
 The theme’s repository is: [https://github.com/526avijitgupta/gokarna](https://github.com/526avijitgupta/gokarna).
 
-You can download the [latest release :books: .zip file](https://github.com/526avijitgupta/gokarna/releases) of the theme and extract it in the `themes` directory.
-
-Alternatively, clone this repository to the `themes` directory:
+You can clone this repository to the `themes` directory:
 
 ```bash
 git clone https://github.com/526avijitgupta/gokarna.git themes/gokarna
@@ -148,6 +146,9 @@ In addition to [Hugo global configuration](https://gohugo.io/overview/configurat
   # Accent color is displayed when you hover over <a> tags
   accentColor = "#FF4D4D"
 
+  # Display "back to top" button on posts
+  ShowBackToTopButton = true
+
   # You can use this to inject any HTML in the <head> tag.
   # Ideal usecase for this is to import custom js/css or add your analytics snippet
   customHeadHTML = ""
@@ -210,6 +211,14 @@ If you want to display posts on the homepage, the options are:
 ```toml
 [params]
   showPostsOnHomePage = "popular"
+```
+
+### Date format 
+The date format being used across can be chaged. For valid date strings see: https://pkg.go.dev/time#pkg-constants
+
+```toml 
+[params]
+  dateFormat = "2 January, 2006"
 ```
 
 ### Footer
