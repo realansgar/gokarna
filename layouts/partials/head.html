@@ -9,7 +9,7 @@
     </style>
 
     {{ $title := .Title | default .Site.Title }}
-    {{ $description := .Description | default .Site.Params.Description }}
+    {{ $description := .Params.MetaDescription | default .Description | default .Site.Params.Description }}
     {{ $image := .Scratch.Get "avatarImgSrc" | absURL }}
     {{ if .Params.Image}}
         {{ if hasPrefix .Params.Image "/" }}
