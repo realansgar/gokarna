@@ -10,7 +10,14 @@
 
     {{ $title := .Title | default .Site.Title }}
     {{ $description := .Description | default .Site.Params.Description }}
-    {{ $image := .Params.image | default (.Scratch.Get "avatarImgSrc") }}
+    {{ $image := .Scratch.Get "avatarImgSrc" | absURL }}
+    {{ if .Params.Image}}
+        {{ if hasPrefix .Params.Image "/" }}
+            {{ $image = .Params.Image | absURL }}
+        {{ else }}
+            {{ $image = .Params.image | urls.JoinPath .Page.Permalink }}
+        {{ end}}
+    {{ end }}
     {{ $siteKeywords := .Site.Params.MetaKeywords | default (slice) }}
     {{ $postKeywords := .Params.tags | default (slice) }}
     {{ $keywords := union $siteKeywords $postKeywords }}
@@ -24,15 +31,15 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $title }}">
     <meta property="og:description" content="{{ $description }}">
-    <meta property="og:image" content="{{ absURL $image }}">
-    <meta property="og:image:secure_url" content="{{ absURL $image }}">
+    <meta property="og:image" content="{{ $image }}">
+    <meta property="og:image:secure_url" content="{{ $image }}">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $title }}">
     <meta name="twitter:description" content="{{ $description }}">
     <meta property="twitter:domain" content="{{ .Permalink }}">
     <meta property="twitter:url" content="{{ .Permalink }}">
-    <meta name="twitter:image" content="{{ absURL $image }}">
+    <meta name="twitter:image" content="{{ $image }}">
 
     <!-- SEO canonicals: helps Google understand your site better when using marketing campaign tagging etc -->
     <link rel="canonical" href="{{ .Permalink }}">
